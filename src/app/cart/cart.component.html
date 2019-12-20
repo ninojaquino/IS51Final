@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <input class="form-control mr-sm-2" type="search" placeholder="Enter your name (Last, First)" aria-label="Search" name="search">
+    <input [(ngModel)]="nameParams" class="form-control mr-sm-2" type="search" placeholder="Enter your name (Last, First)" aria-label="Search" name="search">
   </div>
 </nav>
 
 <ul class="nav justify-content-end nav-action-container">
   <li class="nav-item">
-    <button mat-raised-button color="primary">Add Bike Model 1</button>
+    <button mat-raised-button color="primary" (click)="addItems('Bike1')">Add Bike Model 1</button>
   </li>
   <li class="nav-item">
-    <button mat-raised-button color="primary">Add Bike Model 2</button>
+    <button mat-raised-button color="primary" (click)="addItems('Bike2')">Add Bike Model 2</button>
   </li>
   <li class="nav-item">
-    <button mat-raised-button color="primary">Add Bike Model 3</button>
+    <button mat-raised-button color="primary" (click)="addItems('Bike3')">Add Bike Model 3</button>
     </li>
   <li class="nav-item">
-    <button mat-raised-button color="primary">Checkout</button>
+    <button mat-raised-button color="primary" (click)="orderCheckout()">Checkout</button>
   </li>
 </ul>
 
@@ -26,28 +26,28 @@
         <img class="cover" [src]="bike.image" alt="bike">
         <p>
           <label for="id">ID:</label>
-          <input disabled type="text" class="form-control" placeholder="ID" aria-label="id">
+          <input [(ngModel)]="bike.id" disabled type="text" class="form-control" placeholder="ID" aria-label="id">
         </p>  
         <p>
           <label for="description">Description:</label>
-          <input type="text" class="form-control" placeholder="Description" aria-label="desc"
+          <input [(ngModel)]="bike.description" type="text" class="form-control" placeholder="Description" aria-label="desc"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="price">Price</label>
-          <input type="text" class="form-control" placeholder="Price" aria-label="price"
+          <input [(ngModel)]="bike.price" type="text" class="form-control" placeholder="Price" aria-label="price"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="quantity">Quantity</label>
-          <input type="text" class="form-control" placeholder="Quantity" aria-label="qty"
+          <input [(ngModel)]="bike.quantity" type="text" class="form-control" placeholder="Quantity" aria-label="qty"
             aria-describedby="basic-addon1">
         </p>
       </mat-card-content>
       <mat-card-actions>
         <div class="btn-group pull-right">
-          <button mat-raised-button color="primary" class="pull-right">Save For Later</button>
-          <button mat-raised-button color="warn">Remove From Cart</button>
+          <button mat-raised-button color="primary" class="pull-right" (click)="saveBicycle()">Save For Later</button>
+          <button mat-raised-button color="warn" (click)="deleteBicycle(i)">Remove From Cart</button>
         </div>
       </mat-card-actions>
     </mat-card>
